@@ -1,36 +1,48 @@
 # NavList
-
-
-## Requirements
+### Requirements
 |Component|Instructions|
 |---|---|
 | 2x Buttons | One named **:BD** for decreasing the ID by 1 & one named **:BU** for increasing the ID by 1. Button style must be set to **1**.|
 | 1x progress bar | Named **:DI** for storing the destination ID as an INTEGER instead of a STRING, set the minimum to **-1000000** and the maximum to **1000000**. |
-| 1x Basic YOLOL Chip | For the Core Script, and one additional one for each Extension added. |
+| 1x Basic YOLOL Chip | For the Core Script, and one additional one for each Extension added. Each chip can hold a maximum of 18 destinations for a maximum of 10.000 destinations. |
 | 1x progress bar or 1x text panel | (Optional) For showing the name of the Destination, must be named **:DEST**. |
 
-## Global Variables
-| Global | Description |
-|:------:| ----------- |
-| :DX | The X coordinate of the destination. |
-| :DY | The Y coordinate of the destination. |
-| :DZ | The Z coordinate of the destination. |
-| :DI | The ID of the destination. |
-| :DEST | The NAME of the destination. |
-| :BD | Input Button, decrease ID by one. |
-| :BU | Input Button, increase ID by one. |
+**Note:** *You only need the two buttons and Core script if you want to manually interact with the NavList. If you are planning on using the NavList as a database for a different YOLOL Script only, then you will only need a Basic YOLOL chip with the **Extension** on it.*
+
+### Global Variables
+| Global | Description | Used By |
+|:------:| ----------- | ----------- |
+| :DX | The X coordinate of the destination. | Core & Extension |
+| :DY | The Y coordinate of the destination. | Core & Extension |
+| :DZ | The Z coordinate of the destination. | Core & Extension |
+| :DI | The ID of the destination. | Core & Extension |
+| :DEST | The NAME of the destination. | Core & Extension |
+| :BD | Input Button, decrease ID by one. | Core Only |
+| :BU | Input Button, increase ID by one. | Core Only |
 
 ## NavList - Core
----
 Handles Button input and stores the destinations 0-17.
 
+### How it works
+The script will stay on line 2 and handle button input and wait until the ID is within the range 0-E, it will then go to the line where the destination is stored and read the data after which it will jump to line 1 and store it globally before returning to line 2.
+```c
+//Note I is the internal name for the Destination ID :DI, as the core is "broadcasting" the ID we only need to read the ID once at the initialization.
+I+=:BU*(I<M)-:BD*(I>0) :BD=0 :BU=0 :DI=I //Increase I by 1 if :BU==1, otherwize decrease I by 1 if :BD==0, finally reset :BD & :BU and store I as :DI.
+goto2+((I+1)*(0<=I)*(I<=E)) //Stay on line 2 until I is between 0 and E, if so go to that line instead.
+```
+
+###  Options
 | Option | Min | Max | Description |
 | ------ |:---:|:---:| ----------- |
 | M | 0 | 9999 | The maximum allowed Destination ID, prevents the user from going out of range. Needs to be changed each time you add/remove a destination. |
 | E | 0 | 17 | The last Destination ID listed on this chip. Needs to be changed if you have less then 18 destinations, should be set to destination_count - 1.
 
+### Example Setup
+**Setup:** *Core + Extension, 30 Destinations in total.*
+
+**Note:** *Note this only covers the **Core** part of the setup.*
 ```c
-:DX=X :DY=Y :DZ=Z :DEST=N I=:DI M=0030 E=0017//github.com/WaCrex/YOLOL
+:DX=X :DY=Y :DZ=Z :DEST=N I=:DI M=0029 E=0017//github.com/WaCrex/YOLOL
 I+=:BU*(I<M)-:BD*(I>0) :BD=0 :BU=0 :DI=I goto2+((I+1)*(0<=I)*(I<=E))
 X=-1514 Y=-58557 Z=14605 N="Origin 1" goto1     //ID#000 - Origin 1
 X=-12356 Y=-53133 Z=9482 N="Origin 2" goto1     //ID#001 - Origin 2
@@ -55,13 +67,25 @@ X=28872 Y=51332 Z=9665 N="Origin 18" goto1      //ID#017 - Origin 18
 ## NavList - Extension
 Extends the distination list by an another 18 slots, used for the destinations 18-9999.
 
+### How it works
+The script will stay on line 2 until the ID is within the range set by S & E, it will then go to the line where the destination is stored and read the data after which it will jump to line 1 and store it globally before returning to line 2.
+```c
+I=:DI //Read the globally stored destination ID :DI and store it internally as I.
+goto2+((I+1-S)*(S<=I)*(I<=E)) //Stay on line 2 until I is between 0 and E, if so go to that line instead.
+```
+
+### Options
 | Option | Min | Max | Description |
 | ------ |:---:|:---:| ----------- |
 | S | The first destination ID listed on this chip. |
 | E | The last destination ID listed on this chip. Needs to be changed if you have less than 18 destinations on this chip. |
 
+### Example Setup
+**Setup:** *Core + Extension, 30 Destinations in total.*
+
+**Note:** *Note this only covers the **Extension** part of the setup.*
 ```c
-:DX=X :DY=Y :DZ=Z :DEST=N S=0018 E=0035//github.com/WaCrex/YOLOL E=END
+:DX=X :DY=Y :DZ=Z :DEST=N S=0018 E=0029//github.com/WaCrex/YOLOL E=END
 I=:DI goto2+((I+1-S)*(S<=I)*(I<=E))//Destination ID Extension  S=START
 X=38334 Y=42004 Z=4963 N="Origin 19" goto1      //ID#018 - Origin 19
 X=43363 Y=32331 Z=81 N="Origin 20" goto1        //ID#019 - Origin 20
@@ -81,4 +105,31 @@ X=0 Y=0 Z=0 N="" goto1                          //ID#032 - Not In Use
 X=0 Y=0 Z=0 N="" goto1                          //ID#033 - Not In Use
 X=0 Y=0 Z=0 N="" goto1                          //ID#034 - Not In Use
 X=0 Y=0 Z=0 N="" goto1                          //ID#035 - Not In Use
+```
+
+## TODO
+*(Improvement) *Find a way to "squese in" I=:DI on line 2 of the Core script, this should allow manually entering the destination ID into :DI and thus allow the user to jump directy to an destination ID.*
+
+## Credits
+| Name | GitHub | Description |
+| ------ | ------ | ----------- |
+| Patrick Lineruth | WaCrex | The Author of these two scripts. |
+| | Syb80 | For writing navi_notebook.yolol and giving me the inspiration to create these two scripts. It was a nice challenge and I like challenges :) |
+
+**Syb80's version (navi_notebook.yolol):**
+```c
+ x=-21756 y=-48358 z=9615 name="Origin 3"
+// x=-21000 y=-48000 z=9000 name="None" // your comment here
+// x=-21000 y=-48000 z=9000 name="None"
+// x=-21000 y=-48000 z=9000 name="None"
+// x=-21000 y=-48000 z=9000 name="None"
+// x=-21000 y=-48000 z=9000 name="None"
+// x=-21000 y=-48000 z=9000 name="None"
+// x=-21000 y=-48000 z=9000 name="None"
+// x=-21000 y=-48000 z=9000 name="None"
+// x=-21000 y=-48000 z=9000 name="None"
+                   :DX=x :DY=y :DZ=z :TN=name goto 1 //  comments -> |
+// ==== Captain's notebook ====
+// Store waypoints here. Uncomment one line at once
+// NAME = 12 chars max
 ```
