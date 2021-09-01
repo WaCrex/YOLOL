@@ -108,7 +108,7 @@ X=0 Y=0 Z=0 N="" goto1                          //ID#035 - Not In Use
 ```
 
 ## TODO
-* *(Improvement) Find a way to "squeeze in" I=:DI on line 2 of the Core script, this should allow manually entering the destination ID into :DI and thus allow the user to jump directy to an destination ID.*
+* *(Improvement) Find a way to "squeeze in" I=:DI at the start of line 2 in the Core script, this should allow manually entering the destination ID into :DI and thus allow the user to jump directy to an destination ID.*
 
 ## Credits
 | Name | GitHub | Description |
