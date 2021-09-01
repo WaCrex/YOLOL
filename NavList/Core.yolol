@@ -1,0 +1,20 @@
+:DX=X :DY=Y :DZ=Z :DEST=N I=:DI M=0030 E=0017//github.com/WaCrex/YOLOL
+I+=:BU*(I<M)-:BD*(I>0) :BD=0 :BU=0 :DI=I goto2+((I+1)*(0<=I)*(I<=E))
+X=-1514 Y=-58557 Z=14605 N="Origin 1" goto1     //ID#000 - Origin 1
+X=-12356 Y=-53133 Z=9482 N="Origin 2" goto1     //ID#001 - Origin 2
+X=-21163 Y=-48710 Z=9735 N="Origin 3" goto1     //ID#002 - Origin 3
+X=-30412 Y=-39176 Z=4620 N="Origin 4" goto1     //ID#003 - Origin 4
+X=-35894 Y=-28937 Z=-569 N="Origin 5" goto1     //ID#004 - Origin 5
+X=-40449 Y=-19201 Z=-5273 N="Origin 6" goto1    //ID#005 - Origin 6
+X=-45639 Y=-9224 Z=-5593 N="Origin 7" goto1     //ID#006 - Origin 7
+X=-45676 Y=511 Z=-5543 N="Origin 8" goto1       //ID#007 - Origin 8
+X=-45810 Y=10676 Z=-5501 N="Origin 9" goto1     //ID#008 - Origin 9
+X=-41736 Y=22001 Z=-5152 N="Origin 10" goto1    //ID#009 - Origin 10
+X=-37458 Y=30822 Z=-743 N="Origin 11" goto1     //ID#010 - Origin 11
+X=-32408 Y=40743 Z=4281 N="Origin 12" goto1     //ID#011 - Origin 12
+X=-22508 Y=50948 Z=9390 N="Origin 13" goto1     //ID#012 - Origin 13
+X=-12627 Y=56072 Z=9548 N="Origin 14" goto1     //ID#013 - Origin 14
+X=-2299 Y=61232 Z=14458 N="Origin 15" goto1     //ID#014 - Origin 15
+X=7554 Y=61302 Z=14522 N="Origin 16" goto1      //ID#015 - Origin 16
+X=17836 Y=56855 Z=10092 N="Origin 17" goto1     //ID#016 - Origin 17
+X=28872 Y=51332 Z=9665 N="Origin 18" goto1      //ID#017 - Origin 18
