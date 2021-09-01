@@ -1,0 +1,20 @@
+:DX=X :DY=Y :DZ=Z :DEST=N S=0018 E=0035//github.com/WaCrex/YOLOL E=END
+I=:DI goto2+((I+1-S)*(S<=I)*(I<=E))//Destination ID Extension  S=START
+X=0 Y=0 Z=0 N="" goto1                          //ID#018 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#019 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#020 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#021 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#022 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#023 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#024 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#025 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#026 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#027 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#028 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#029 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#030 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#031 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#032 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#033 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#034 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#035 - Not In Use
