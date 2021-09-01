@@ -1,17 +1,17 @@
 :DX=X :DY=Y :DZ=Z :DEST=N S=0018 E=0035//github.com/WaCrex/YOLOL E=END
 I=:DI goto2+((I+1-S)*(S<=I)*(I<=E))//Destination ID Extension  S=START
-X=38334 Y=42004 Z=4963 N="Origin 19" goto1      //ID#018 - Origin 19
-X=43363 Y=32331 Z=81 N="Origin 20" goto1        //ID#019 - Origin 20
-X=48612 Y=22216 Z=-5050 N="Origin 21" goto1     //ID#020 - Origin 21
-X=53755 Y=11921 Z=-5458 N="Origin 22" goto1     //ID#021 - Origin 22
-X=53982 Y=1680 Z=-5390 N="Origin 23" goto1      //ID#022 - Origin 23
-X=53948 Y=-8049 Z=-5410 N="Origin 24" goto1     //ID#023 - Origin 24
-X=48380 Y=-18037 Z=-5330 N="Origin 25" goto1    //ID#024 - Origin 25
-X=44005 Y=-28331 Z=-466 N="Origin 26" goto1     //ID#025 - Origin 26
-X=38773 Y=-38244 Z=4672 N="Origin 27" goto1     //ID#026 - Origin 27
-X=28909 Y=-48311 Z=9594 N="Origin 28" goto1     //ID#027 - Origin 28
-X=18452 Y=-53450 Z=9642 N="Origin 29" goto1     //ID#028 - Origin 29
-X=8356 Y=-58735 Z=15266 N="Origin 30" goto1     //ID#029 - Origin 30
+X=0 Y=0 Z=0 N="" goto1                          //ID#018 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#019 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#020 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#021 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#022 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#023 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#024 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#025 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#026 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#027 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#028 - Not In Use
+X=0 Y=0 Z=0 N="" goto1                          //ID#029 - Not In Use
 X=0 Y=0 Z=0 N="" goto1                          //ID#030 - Not In Use
 X=0 Y=0 Z=0 N="" goto1                          //ID#031 - Not In Use
 X=0 Y=0 Z=0 N="" goto1                          //ID#032 - Not In Use
