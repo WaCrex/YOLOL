@@ -77,8 +77,8 @@ goto2+((I+1-S)*(S<=I)*(I<=E)) //Stay on line 2 until I is between S and E, if so
 ### Options
 | Option | Min | Max | Description |
 | ------ |:---:|:---:| ----------- |
-| S | The first destination ID listed on this chip. |
-| E | The last destination ID listed on this chip. Needs to be changed if you have less than 18 destinations on this chip. |
+| S | 0 | 9999 | The first destination ID listed on this chip. |
+| E | 0 | 9999 | The last destination ID listed on this chip. Needs to be changed if you have less than 18 destinations on this chip. |
 
 ### Example Setup
 **Setup:** *Core + Extension, 30 Destinations in total.*
