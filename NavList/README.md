@@ -27,7 +27,7 @@ Handles Button input and stores the destinations 0-17.
 The script will stay on line 2 and handle button input and wait until the ID is within the range 0-E, it will then go to the line where the destination is stored and read the data after which it will jump to line 1 and store it globally before returning to line 2.
 ```c
 //Note I is the internal name for the Destination ID :DI, as the core is "broadcasting" the ID we only need to read the ID once at the initialization.
-I+=:BU*(I<M)-:BD*(I>0) :BD=0 :BU=0 :DI=I //Increase I by 1 if :BU==1, otherwize decrease I by 1 if :BD==1, finally reset :BD & :BU and store I as :DI.
+I+=:BU*(I<M)-:BD*(I>0) :BD=0 :BU=0 :DI=I //Increase I by 1 if :BU==1, otherwise decrease I by 1 if :BD==1, finally reset :BD & :BU and store I as :DI.
 goto2+((I+1)*(0<=I)*(I<=E)) //Stay on line 2 until I is between 0 and E, if so go to that line instead.
 ```
 
@@ -65,7 +65,7 @@ X=28872 Y=51332 Z=9665 N="Origin 18" goto1      //ID#017 - Origin 18
 ```
 
 ## NavList - Extension
-Extends the distination list by an another 18 slots, used for the destinations 18-9999.
+Extends the destination list by an another 18 slots, used for the destinations 18-9999.
 
 ### How it works
 The script will stay on line 2 until the ID is within the range set by S & E, it will then go to the line where the destination is stored and read the data after which it will jump to line 1 and store it globally before returning to line 2.
