@@ -71,7 +71,7 @@ Extends the destination list by an another 18 slots, used for the destinations 1
 The script will stay on line 2 until the ID is within the range set by S & E, it will then go to the line where the destination is stored and read the data after which it will jump to line 1 and store it globally before returning to line 2.
 ```c
 I=:DI //Read the globally stored destination ID :DI and store it internally as I.
-goto2+((I+1-S)*(S<=I)*(I<=E)) //Stay on line 2 until I is between 0 and E, if so go to that line instead.
+goto2+((I+1-S)*(S<=I)*(I<=E)) //Stay on line 2 until I is between S and E, if so go to that line instead.
 ```
 
 ### Options
