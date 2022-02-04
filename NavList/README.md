@@ -1,10 +1,13 @@
 # NavList
+
+
 ### Requirements
 |Component|Instructions|
 |---|---|
 | 2x Buttons | One named **:BD** for decreasing the ID by 1 & one named **:BU** for increasing the ID by 1. Button style must be set to **1**.|
 | 1x progress bar | Named **:DI** for storing the destination ID as an INTEGER instead of a STRING, set the minimum to **0** and the maximum to **9999**. |
 | 1x Basic YOLOL Chip | For the Core Script, and one additional one for each Extension added. Each chip can hold a maximum of 18 destinations for a maximum of 10.000 destinations. |
+| 1x Memory Chip | For storing the global variables if you don't already have one. |
 | 1x progress bar or 1x text panel | (Optional) For showing the name of the Destination, must be named **:DEST**. |
 
 **Note:** *You only need the two buttons and Core script if you want to manually interact with the NavList. If you are planning on using the NavList as a database for a different YOLOL Script only, then you will only need a Basic YOLOL chip with the **Extension** on it.*
